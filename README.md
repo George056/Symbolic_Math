@@ -68,3 +68,15 @@ This portion is heavily a work in progress.
 
 ## Note
 I plan to continue to update this project as I work on it, but I am currently a senior in college with a double major and will put my focuse on schoolwork first.
+
+## Tasks
+- [ ] Add numeric only evaluation to simplification
+- [ ] Add integration (numeric output)
+- [ ] Add tabular integration
+- [ ] Add more advanced antiderivatives
+- [ ] Extend Laplace to more base transforms
+- [ ] Extend Laplace to more advanced transforms
+- [ ] Solve differential equations with laplace
+- [ ] Add Z transform
+- [ ] Add other ideas
+- [ ] Solve difference equations with Z transform
