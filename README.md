@@ -1,8 +1,8 @@
 # Symbolic Mathematics
 
 ## Authors
-George Cook
-Dr. Tim Baird
+George Cook    
+Dr. Tim Baird    
 
 ## Description
 This can perform derivatives and Calculus I level integrals. It can also perform limited Laplace transforms.
