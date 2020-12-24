@@ -27,7 +27,7 @@ Laplace Transform -> laplace function
 Several unary operators are accounted for with this system and are stored within the variable unary_operators. The operators are added in such a way that if they are not already defined then the program will define them. These operators are as follows: 
 ```lisp
 {
-  'ln 'lg 'log10 'log 'exp 'sqrt 'abs 'factorial
+  'ln 'lg 'log10 'log 'exp 'sqrt 'abs 'factorial '-
   'sin 'cos 'tan 'sec 'csc 'cot 
   'asin 'acos 'atan 'asec 'acsc 'acot
   'sinh 'cosh 'tanh 'sech 'csch 'coth
@@ -42,6 +42,9 @@ The converter.lsp file contains 2 functions for converting between infix and pre
 ### Simplification
 The implamented simplification technique is an extention of what was provided by Dr. Tim Baird in my Comp 4300 Artificial Intelligence class. It is based on using a pattern matching program to see if a given term matches any known simplification patter, known as a rule. Rules are stored in rule.lsp, with the simplification rules stored in the simplification_rules variable. Once a match is found the simplify program will then look at the right hand of the rule, where the simplified version of the left hand side is stored. It will then perform the simplification by variable substitution.   
 I have put the rules that I have currently needed in the rule.lsp file, but there are other rules that have not been added yet. The rules are set up for prefix notation and that is why everything involves performing operation in prefix notation. If these rules were re-writen to be in infix, this would likely help simplify things.   
+
+#### number_simplify
+This function is writen to take terms in prefix notation.
 
 ### Derivatives
 The derivatives from d/dx are always performed in respect to x and can be entured in infix notation and do not have to be fully simplified. One can take derivatives in respect to other variable through using d/d, but must enter them in prefix notation and the result will not be simplified upon completion.   
@@ -68,15 +71,3 @@ This portion is heavily a work in progress.
 
 ## Note
 I plan to continue to update this project as I work on it, but I am currently a senior in college with a double major and will put my focuse on schoolwork first.
-
-## Tasks
-- [ ] Add numeric only evaluation to simplification
-- [ ] Add integration (numeric output)
-- [ ] Add tabular integration
-- [ ] Add more advanced antiderivatives
-- [ ] Extend Laplace to more base transforms
-- [ ] Extend Laplace to more advanced transforms
-- [ ] Solve differential equations with laplace
-- [ ] Add Z transform
-- [ ] Add other ideas
-- [ ] Solve difference equations with Z transform
