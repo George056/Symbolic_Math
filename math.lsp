@@ -8,11 +8,13 @@
 (setq inf 'inf)
 (setq nan 'nan)
 (setq illegal_symbols (append (list 'e 'inf 'nan) variables))
-(setq unary_operators (list 'ln 'lg 'log10 'log 'exp 'sqrt 'abs 'factorial
+(setq unary_operators (list 'ln 'lg 'log10 'log 'exp 'sqrt 'abs 'factorial '-
 						'sin 'cos 'tan 'sec 'csc 'cot 
 						'asin 'acos 'atan 'asec 'acsc 'acot
 						'sinh 'cosh 'tanh 'sech 'csch 'coth
 						'asinh 'acosh 'atanh 'asech 'acsch 'acoth))
+(setq binary_operators (list '+ '- '* '/ '^))
+(setq operators (append binary_operators unary_operators))
 
 (if (not (fboundp 'isvar))
 (defun isvar (term)
