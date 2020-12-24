@@ -1,3 +1,23 @@
+
+;**********************************************************************************
+;@name: contains
+;@author: George Cook
+;@version: 1.0.0
+;@description: This function works like member, but looks into sublists
+;@param: lst, the list to be searched
+;@param: target, the item you are looking for
+;@return: Either T or NIL
+;**********************************************************************************
+(defun contains (lst target)
+	(cond
+		((atom lst) (if (eq lst target)
+			T
+			nil
+		))
+		(T (or (contains (car lst) target) (contains (cdr lst) target)))
+	)
+)
+
    ;************************************************************************
    ; isvar
    ;
