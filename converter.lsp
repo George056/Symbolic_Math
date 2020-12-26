@@ -4,15 +4,15 @@
 ;Converts pre-fix to n-fix
 ;@note: they both can convert from one to the other
 
-(defun nfix_to_prefix (fun)
+(defun infix_to_prefix (fun)
 	(cond
 		((or (atom fun) (= (list-length fun) 1)) fun)
 		((member (car fun) unary_operators) (list (car fun) (if (atom (cadr fun))
-			(nfix_to_prefix (list (cadr fun)))
-			(nfix_to_prefix (cadr fun)))))
+			(infix_to_prefix (list (cadr fun)))
+			(infix_to_prefix (cadr fun)))))
 		((and (equal (type-of (car fun)) 'symbol) (string= (car fun) '-) (= (list-length fun) 2))
-			(list (car fun) (nfix_to_prefix (cadr fun))))
-		(T (list (second fun) (nfix_to_prefix (first fun)) (nfix_to_prefix (third fun))))
+			(list (car fun) (infix_to_prefix (cadr fun))))
+		(T (list (second fun) (infix_to_prefix (first fun)) (infix_to_prefix (third fun))))
 	)
 )
 

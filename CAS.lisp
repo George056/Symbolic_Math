@@ -6,7 +6,7 @@
 (load 'converter)
 
 (defun d/dx (u)
-	(let* ((processed (nfix_to_prefix u)) (result))
+	(let* ((processed (infix_to_prefix u)) (result))
 		(setq processed (simplify processed simplification_rules))
 		(setq result (d/d processed 'x))
 		(if result
@@ -201,7 +201,7 @@
 )
 
 (defun antiderivative (fun d)
-	(let* ((processed (nfix_to_prefix fun)) (result))
+	(let* ((processed (infix_to_prefix fun)) (result))
 		(setq processed (simplify processed simplification_rules))
 		(setq result (anti-derivative processed d))
 		(if result
@@ -287,5 +287,5 @@
 )
 
 (defun laplace (fun)
-	(prefix_to_nfix (simplify (nfix_to_prefix fun) laplace_rules))
+	(prefix_to_nfix (simplify (infix_to_prefix fun) laplace_rules))
 )
