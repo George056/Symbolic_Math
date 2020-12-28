@@ -47,10 +47,11 @@
 ;**********************************************************************************
 (setq l1 '((t) (/ 1 (^ s 2))))
 (setq l2 '((^ t m) (/ (factorial m) (^ s (+ m 1)))))
-(setq l3 '((^ e (* m t)) (/ 1 (s - m))))
-(setq l4 '((sin (* m t)) (/ m (+ (^ s 2) (^ m 2)))))
-(setq l4 '((cos (* m t)) (/ s (+ (^ s 2) (^ m 2)))))
-(setq laplace_rules (list l2 l3 l4 l1))
+(setq l3 '((^ e t) (/ 1 (- s 1))))
+(setq l4 '((^ e (* m t)) (/ 1 (- s m))))
+(setq l5 '((sin (* m t)) (/ m (+ (^ s 2) (^ m 2)))))
+(setq l6 '((cos (* m t)) (/ s (+ (^ s 2) (^ m 2)))))
+(setq laplace_rules (list l2 l3 l4 l5 l6 l1))
 
 
 
