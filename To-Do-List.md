@@ -1,7 +1,7 @@
 # To-Do-List
 
-- [x] Add numeric only evaluation to simplification  (George Cook)
-- [ ] Add integration (numeric output)
+- [x] Add numeric only evaluation to simplification  [George Cook]
+- [x] Add integration (numeric output) [George Cook]
 - [ ] Add tabular integration
 - [ ] Add more advanced antiderivatives
 - [ ] Extend Laplace to more base transforms

@@ -4,6 +4,7 @@
 (load 'rules)
 (load 'math)
 (load 'converter)
+(load 'Utility)
 
 (defun simplify (fun &optional ruleset)
 	(cond
@@ -228,6 +229,27 @@
 	)
 )
 
+(defun integral (fun d range_a &optional range_b)
+	(cond
+		((null range_a) nil)
+		((and (numberp range_a) (numberp range_b)) 
+			(let* ((inta (antiderivative fun d)) (intb inta) (result))
+				(setq inta (myreplace d range_a inta))
+				(setq intb (myreplace d range_b intb))
+				(setq result (list intb '- inta))
+				(simplify result)
+			)
+		)
+		((and (not (atom range_a)) (null range_b) (iseven (list-length range_a)))
+			(if (null cddr range_a)
+				(integral fun d (car range_a) (cadr range_a))
+				(list (integral fun d (car range_a) (cadr range_a)) (integral fun d (cddr range_a)))
+			)
+		)
+		(T (pprint "Please provide two numbers or a list of pair."))
+	)
+)
+
 (defun anti-derivative (fun d)
 	(cond
 		;constant or single var
@@ -243,6 +265,13 @@
 		((and (equal (first fun) '-) (= (list-length fun) 3)) (list '- (anti-derivative (second fun) d) (anti-derivative (third fun) d)))
 		
 		((and (equal (first fun) '-) (= list-length fun) 2) (list '- (anti-derivative (second fun) d)))
+		
+		((and (equal (first fun) '*) (xor (contains (second fun) d) (contains (third fun) d)))
+			(if (contains (second fun) d)
+				(list '* (anti-derivative (second fun) d) (third fun))
+				(list '* (anti-derivative (third fun) d) (second fun))
+			)
+		)
 		
 		((and (string= (first fun) '^) (string= (second fun) d)) 
 			(list '/ (list '^ (cadr fun) (+ (caddr fun) 1)) (+ (caddr fun) 1))
@@ -306,3 +335,4 @@
 (defun laplace (fun)
 	(simplify fun laplace_rules)
 )
+
