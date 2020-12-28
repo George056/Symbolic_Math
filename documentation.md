@@ -1,11 +1,14 @@
 # Table of Contents
 
 1. [CAS](#CAS)
+  * [simplify](#simplify)
   * [d/d](#d/d)
   * [d/dx](#d/dx)
   * [anti-derivative](#anti-derivative)
   * [antiderivative](#antiderivative)
-  * [laplace](#laplace)
+  * [integral](#integral)
+  * [laplace_transform](#laplace_transform)
+  * [z_transform](#z_transform)
 
 2. [Converter](#Converter)
   * [infix_to_prefix](#infix_to_prefix)
@@ -30,7 +33,6 @@
   * [factorial](#factorial)
 
 4. [Match](#Match)
-  * [contains](#contains)
   * [isvar](#match_isvar)
   * [applyone](#applyone)
   * [applysub](#applysub)
@@ -47,7 +49,12 @@
 
 6. [rules](#rules)
   * [simplification_rules](#simplification_rules)
-  * [laplace_rules](#laplace_rules)
+  * [laplace_transform_rules](#laplace_transform_rules)
+
+7. [Utility](#Utility)
+  * [contains](#contains)
+  * [myreplace](#myreplace)
+  * [iseven](#iseven)
 
 # CAS <a name="CAS"></a>
 
@@ -82,9 +89,25 @@ A simplified function that corresponds to the derivative of the given function, 
 
 ## anti-derivative <a name="anti-derivative"></a>
 
+### Author
+George Cook
+
+### Description
+
+### Version
+0.6.0
+
 ## antiderivative <a name="antiderivative"></a>
 
-## laplace <a name="laplace"></a>
+### Author
+George Cook
+
+### Description
+
+### Version
+1.0.0
+
+## laplace_transform <a name="laplace_transform"></a>
 
 
 
@@ -136,6 +159,46 @@ infix_to_prefix '(ln (4 * (cos (45)))) ;-> (* 4 (cos (45)))
 This file contains implemnentations of mathematical functions that may not be part of the compiler. It relies on the definition of expt, exp, log, cos, sin, tan, acos, asin, and atan. It also includes variables used  by multiple files, and posible the user (such as e).
 
 ## variables <a name="math_variables"></a>
+
+### variables
+
+#### Description
+These are the symbols that are treated as variables within the implamented functions.
+
+#### Value
+'(s t v w x y z)
+
+### match_variables
+
+#### Description
+These are the symbols that are used as variables in the match function.
+
+#### Value
+'(g m o q r)
+
+### e
+
+#### Description
+The base for the natural log (ln).
+
+#### Value
+(exp 1) ;-> 2.7182817
+
+### inf
+
+#### Description
+This is used to represent infinity within the implamented functions.
+
+#### Value
+'inf
+
+### nan
+
+#### Description
+This is used to represent not a number.
+
+#### Value
+'nan
 
 ## isvar <a name="math_isvar"></a>
 
@@ -230,7 +293,7 @@ This serves as a shortcut to replace expt. This is useful because it is more nat
 # rules <a name="rules"></a>
 
 ## Overview
-This file holds the rules that are applied by the simplification function. These rules do not just have to be for mathematical simplification, but for a conversition of one term to another. This fact is seen by using the second ruleset for computing a laplace transform. Rules are lists of individual rules, where an individule rule is a set with a given and what it changes into (left and right).
+This file holds the rules that are applied by the simplification function. These rules do not just have to be for mathematical simplification, but for a conversition of one term to another. This fact is seen by using the second ruleset for computing a laplace_transform transform. Rules are lists of individual rules, where an individule rule is a set with a given and what it changes into (left and right).
 
 ## simplification_rules <a name="simplification_rules"></a>
 
@@ -240,7 +303,75 @@ This set of rules are used in the simplification of symbolic terms. Simplificati
 ### Chosen Simplifications
   : log(x) * y = log(x^y)
 
-## laplace_rules <a name="laplace_rules"></a>
+## laplace_transform_rules <a name="laplace_transform_rules"></a>
 
 ### Description
-These rules are made based on a standared Laplace transform table.
+These rules are made based on a standared laplace_transform transform table.
+
+
+
+
+# Utility <a name="Utility"></a>
+
+## Overview
+This file holds useful functions that are needed to perform other operations, but do not fit in the other files.
+
+## contains <a name="contains"></a>
+
+### author
+George Cook
+
+### Version: 
+1.0.0
+
+### Description
+This function works like member, but looks into sublists
+
+### param
+1. lst
+  : the list to be searched
+
+2. target
+  : the item you are looking for
+
+### return
+Either T or NIL
+
+## myreplace <a name="contains"></a>
+
+### author
+Dr. Baird
+
+### Description
+This replaces all instances of old with new in the provided list.
+
+### param
+1. old
+  : the value that is being matched to in the list
+
+2. new
+  : the value that replaces old in the list
+
+3. lst
+  : the list that is being modified
+
+### return
+The modified list.
+
+## iseven <a name="iseven"></a>
+
+### author
+George Cook
+
+### Description
+This function checks to see if the inputed number is even. If a non-number is entered it returns nil.
+
+### Version
+1.0.0
+
+### param
+1. num
+  : The number to be checked to see if it is even.
+
+### return
+This returns T if it is even and nil if it is odd or not a number.
