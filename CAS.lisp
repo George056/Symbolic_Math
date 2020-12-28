@@ -332,7 +332,10 @@
 	)
 )
 
-(defun laplace (fun)
+(defun laplace_transform (fun)
 	(simplify fun laplace_rules)
 )
 
+(defun z_transform (fun)
+	(simplify fun z_rules)
+)
