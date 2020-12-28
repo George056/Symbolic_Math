@@ -44,22 +44,11 @@ The implamented simplification technique is an extention of what was provided by
 I have put the rules that I have currently needed in the rule.lsp file, but there are other rules that have not been added yet. The rules are set up for prefix notation and that is why everything involves performing operation in prefix notation. If these rules were re-writen to be in infix, this would likely help simplify things.   
 
 #### number_simplify
-This function is writen to take terms in prefix notation.
+This function is writen to take terms in prefix notation. If the list is found to just be one operator and the appropriate amount of operands then it will evaluate it.
 
 ### Derivatives
 The derivatives from d/dx are always performed in respect to x and can be entured in infix notation and do not have to be fully simplified. One can take derivatives in respect to other variable through using d/d, but must enter them in prefix notation and the result will not be simplified upon completion.   
 I did not implament derivatives through using the simplification function; this could have been posible, but it would have involved modifying the simplification function.
-
-#### d/dx
-@description: This function takes standared mathematical input and simplifies it before taking the derivative of it in respect to x and simplifies the result.   
-@param: u  A function that can have a derivative taken of it.   
-@return: A simplified function that corresponds to the derivative of the given function, in respect to x, in infix notation; or the statement: "I was unable to do that."   
-
-#### d/d
-@description: This function takes a prefix notation function and peforms the derivative on it in respect to the given variable.
-@param: fun A function, in prefix notation, that can have a derivative taken of it.
-@param: x The variable that the derivative is being taken in.
-@return: A function, in prefix notation, that corresponds to the derivative of the given function, in respect to the second argument; or nil. 
 
 ### Antiderivatives
 The extention of antiderivatives is very limited in the current project, mostly limmited to a calculus 1 level. When using the antiderivative function one can enter it in standared mathematical notation and it does not have to be simplified, the output will be in the same notation. anti-derivative can also be used, but it must be entered in prefix notation, returns answers in prefix notation, and does not simplify the answer.   

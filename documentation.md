@@ -56,7 +56,29 @@ This is the main file that is loaded when using this program, it includes the ot
 
 ## d/d <a name="d/d"></a>
 
+### description
+This function takes a prefix notation function and peforms the derivative on it in respect to the given variable.   
+### param
+1. fun
+  : A function, in prefix notation, that can have a derivative taken of it.   
+
+2. x 
+  : The variable that the derivative is being taken in.   
+
+### return
+A function, in prefix notation, that corresponds to the derivative of the given function, in respect to the second argument; or nil.    
+
 ## d/dx <a name="d/dx"></a>
+
+### description
+This function takes standared mathematical input and simplifies it before taking the derivative of it in respect to x and simplifies the result. This is performed by using the converter of infix_to_prefix and the d/d functions.
+
+### param
+1. u
+  : A function that can have a derivative taken of it.   
+
+### return
+A simplified function that corresponds to the derivative of the given function, in respect to x, in infix notation; or the statement: "I was unable to do that."   
 
 ## anti-derivative <a name="anti-derivative"></a>
 
