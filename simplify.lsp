@@ -1,14 +1,14 @@
 ;Dr. Baird
 ;George Cook
-;Simplify
+;Symbol
 (load 'MATCH)
 
 
-(defun simplify (term rules)
+(defun symbol_simplify (term rules)
 	(let* ((new (applyallrules term rules)))
 		(cond
 			((equal new term) term)
-			(T (simplify new rules))
+			(T (symbol_simplify new rules))
 		)
 	)
 )

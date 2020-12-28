@@ -39,7 +39,7 @@
   * [match1](#match1)
 
 5. [Simplify](#Simplify)
-  * [simplify](#simplify_function)
+  * [symbol_simplify](#symbol_simplify)
   * [applyallrules](#applyallrules)
   * [applyonerule](#applyonerule)
   * [number_simplify](#number_simplify)
@@ -86,6 +86,16 @@ A simplified function that corresponds to the derivative of the given function, 
 
 ## laplace <a name="laplace"></a>
 
+
+
+
+
+
+
+
+
+
+
 # Converter <a name="Converter"></a>
 
 ## Overview
@@ -105,6 +115,20 @@ infix_to_prefix '(7 ^ 5) ;-> (^ 7 5)
 infix_to_prefix '(ln (4 * (cos (45)))) ;-> (* 4 (cos (45)))
 
 ## prefix_to_nfix <a name="prefix_to_nfix"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Math <a name="Math"></a>
 
@@ -156,9 +180,52 @@ This serves as a shortcut to replace expt. This is useful because it is more nat
 
 ## factorial <a name="factorial"></a>
 
+
+
+
+
+
+
+
+
+
+
+
 # Match <a name="#atch"></a>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Simplify <a name="Simplify"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # rules <a name="rules"></a>
 
@@ -167,6 +234,13 @@ This file holds the rules that are applied by the simplification function. These
 
 ## simplification_rules <a name="simplification_rules"></a>
 
+### Description
+This set of rules are used in the simplification of symbolic terms. Simplification has some circular rules that make it necessary to decide on one and arbitrarily call it simpler than the other. These will be listed below with the right one being what will be seen in the output of the program.
+
+### Chosen Simplifications
+  : log(x) * y = log(x^y)
 
 ## laplace_rules <a name="laplace_rules"></a>
 
+### Description
+These rules are made based on a standared Laplace transform table.
