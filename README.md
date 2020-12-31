@@ -62,7 +62,7 @@ The laplace transform is taken by extending the simplify program with a set of r
 This portion is heavily a work in progress.
 
 ### Z Transform
-The Z transform is taken by an extention of the simplify program with a set of rules corisponding to a standard z transform lookup table. All functions provided for a Z transform must be provided in terms of n; the result will be provided in terms of s.
+The Z transform is taken by an extention of the simplify program with a set of rules corisponding to a standard z transform lookup table. All functions provided for a Z transform must be provided in terms of n; the result will be provided in terms of s.    
 This portion is yet to be implamented but the base function exists.
 
 ## Note
